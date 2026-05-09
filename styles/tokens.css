@@ -1,0 +1,199 @@
+/* ============================================================
+   Joshua Dickson — Portfolio Design Tokens
+   Futurist / Aurora — heavy glass, royal blue primary
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+:root {
+  /* Type */
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-italic: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-body: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Royal blue (cobalt) */
+  --blue-50: #eef2ff;
+  --blue-100: #dbe3ff;
+  --blue-200: #b8c8ff;
+  --blue-300: #8ea7ff;
+  --blue-400: #5a7fff;
+  --blue-500: #3661f0;
+  --blue-600: #0047AB;   /* primary */
+  --blue-700: #003a8c;
+  --blue-800: #002d6e;
+  --blue-900: #001f4d;
+
+  /* Aurora secondaries — used in orbs, never as solid UI fills */
+  --aur-violet: #6D28D9;
+  --aur-magenta: #DB2777;
+  --aur-cyan: #06B6D4;
+  --aur-indigo: #4338CA;
+
+  /* Tweakable accent (overridden by Tweaks panel) */
+  --accent: var(--blue-600);
+  --accent-glow: 0 0 64px -8px color-mix(in oklab, var(--accent) 70%, transparent);
+
+  /* Glass intensity — overridable */
+  --glass-blur: 20px;
+  --glass-saturate: 1.4;
+
+  /* Radii */
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --r-pill: 999px;
+
+  /* Shadows */
+  --shadow-card: 0 20px 60px -20px rgba(8, 10, 30, 0.18), 0 4px 14px -4px rgba(8, 10, 30, 0.06);
+  --shadow-pop: 0 30px 80px -20px rgba(8, 10, 30, 0.32);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-spring: cubic-bezier(0.16, 1.06, 0.36, 1);
+}
+
+/* -------------------- Theme: Light (default) -------------------- */
+:root,
+[data-theme="light"] {
+  --bg: #FAFAFA;
+  --bg-soft: #ffffff;
+  --bg-elevated: #ffffff;
+  --fg: #0a0a0c;
+  --fg-soft: #3f3f46;
+  --fg-muted: #71717a;
+  --hairline: rgba(10, 10, 12, 0.08);
+  --hairline-strong: rgba(10, 10, 12, 0.14);
+
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-bg-strong: rgba(255, 255, 255, 0.72);
+  --glass-bg-faint: rgba(255, 255, 255, 0.35);
+  --glass-border: rgba(255, 255, 255, 0.85);
+  --glass-border-soft: rgba(10, 10, 12, 0.06);
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.95), inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+  --glass-shadow: 0 30px 80px -32px rgba(0, 71, 171, 0.22), 0 8px 24px -10px rgba(8, 10, 30, 0.10);
+
+  /* Aurora bg gradient */
+  --aurora-bg-1: rgba(0, 71, 171, 0.18);
+  --aurora-bg-2: rgba(109, 40, 217, 0.14);
+  --aurora-bg-3: rgba(6, 182, 212, 0.16);
+  --aurora-bg-4: rgba(219, 39, 119, 0.10);
+
+  /* Chip / button */
+  --chip-bg: rgba(10, 10, 12, 0.04);
+  --chip-bg-hover: rgba(10, 10, 12, 0.08);
+  --chip-border: rgba(10, 10, 12, 0.08);
+
+  color-scheme: light;
+}
+
+/* -------------------- Theme: Dark -------------------- */
+[data-theme="dark"] {
+  --bg: #09090b;            /* zinc-950 */
+  --bg-soft: #0f0f12;
+  --bg-elevated: #131318;
+  --fg: #f4f4f5;
+  --fg-soft: #d4d4d8;
+  --fg-muted: #a1a1aa;
+  --hairline: rgba(255, 255, 255, 0.08);
+  --hairline-strong: rgba(255, 255, 255, 0.16);
+
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-bg-strong: rgba(255, 255, 255, 0.08);
+  --glass-bg-faint: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.10);
+  --glass-border-soft: rgba(255, 255, 255, 0.06);
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.10), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --glass-shadow: 0 30px 80px -28px rgba(0, 71, 171, 0.40), 0 8px 24px -10px rgba(0, 0, 0, 0.6);
+
+  --aurora-bg-1: rgba(58, 110, 240, 0.32);
+  --aurora-bg-2: rgba(139, 92, 246, 0.28);
+  --aurora-bg-3: rgba(6, 182, 212, 0.22);
+  --aurora-bg-4: rgba(236, 72, 153, 0.18);
+
+  --chip-bg: rgba(255, 255, 255, 0.05);
+  --chip-bg-hover: rgba(255, 255, 255, 0.10);
+  --chip-border: rgba(255, 255, 255, 0.08);
+
+  color-scheme: dark;
+}
+
+/* -------------------- Reset -------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "cv11";
+  overflow-x: hidden;
+  transition: background 0.4s var(--ease-out), color 0.4s var(--ease-out);
+}
+img, svg { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+input, textarea, select { font: inherit; color: inherit; }
+
+::selection { background: color-mix(in oklab, var(--accent) 35%, transparent); color: var(--fg); }
+
+/* -------------------- Type scale -------------------- */
+.t-display { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.03em; line-height: 1.02; }
+.t-display-xl { font-family: var(--font-display); font-weight: 600; font-size: clamp(56px, 9vw, 148px); letter-spacing: -0.04em; line-height: 0.94; }
+.t-display-lg { font-family: var(--font-display); font-weight: 600; font-size: clamp(44px, 6vw, 88px); letter-spacing: -0.035em; line-height: 0.98; }
+.t-display-md { font-family: var(--font-display); font-weight: 600; font-size: clamp(32px, 4vw, 56px); letter-spacing: -0.03em; line-height: 1.02; }
+.t-display-sm { font-family: var(--font-display); font-weight: 600; font-size: clamp(24px, 2.6vw, 36px); letter-spacing: -0.025em; line-height: 1.1; }
+.t-italic { font-family: var(--font-italic); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+.t-mono { font-family: var(--font-mono); font-weight: 500; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
+.t-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.t-body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
+.t-lead { font-family: var(--font-body); font-size: clamp(17px, 1.4vw, 20px); line-height: 1.55; color: var(--fg-soft); }
+.t-meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); }
+
+/* Gradient text */
+.t-gradient {
+  background: linear-gradient(120deg, var(--accent) 0%, var(--aur-violet) 50%, var(--aur-cyan) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* -------------------- Layout -------------------- */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 48px);
+}
+.container-tight { max-width: 980px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
+.container-wide { max-width: 1440px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
+
+/* Section spacing */
+.section { padding-block: clamp(64px, 9vw, 140px); position: relative; }
+.section-tight { padding-block: clamp(48px, 6vw, 96px); position: relative; }
+
+/* Hairline divider */
+.hr-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hairline-strong) 20%, var(--hairline-strong) 80%, transparent);
+  border: 0;
+}
+
+/* Density tweak (compact / roomy) */
+[data-density="compact"] { --density: 0.85; }
+[data-density="roomy"] { --density: 1.15; }
+[data-density="compact"] .section { padding-block: clamp(48px, 7vw, 100px); }
+[data-density="roomy"] .section { padding-block: clamp(80px, 11vw, 180px); }
